@@ -3,16 +3,16 @@ Purpose
 JMOTableViewDescription is an Objective-C library for easily creating and manage complex structured tableView.
 
 Why this project?
-1. Apple TableView delegation protocols proposed are simple but not very easy to manipulate when you have to manage 10 differents objets or cells in your TableView.
-This situations can produce very complicated algorithms to present the rigth TableViewCell to present a particular object.
-2. It's a very simple way to produce a "grouped tableView" style without having to use the "F*******g" TableView grouped!
-3. SectionHeaderView not reusable?
+* Apple TableView delegation protocols proposed are simple but not very easy to manipulate when you have to manage 10 differents objets or cells in your TableView.
+* This situations can produce very complicated algorithms to present the rigth TableViewCell to present a particular object.
+* SectionHeaderView not reusable?
 
 This project present:
-1. A new way to describe your tableView "layout" in a very simple method,
-2. Datasource / Delegate considerably simplified by using this object,
-3. The code produced using this implementation his highly customizable, reusable and flexible. (No more bugs?)
-4. TableView delegate and datasource focus on manipulated objet, no indexPath!
+* A new way to describe your tableView "layout" in a very simple method,
+* Datasource / Delegate considerably simplified by using this object,
+* It's a very simple way to produce a "grouped tableView" style without having to use the "F*******g" TableView grouped!
+* The code produced using this implementation his highly customizable, reusable and flexible. (No more bugs?)
+* TableView delegate and datasource focus on manipulated objet, no indexPath!
 
 
 Supported iOS & SDK Versions
