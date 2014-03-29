@@ -40,7 +40,7 @@
 - (IBAction)changeDataPressed:(id)sender
 {
     self.num++;
-    if (self.num > 2) {
+    if (self.num > 4) {
         self.num = 0;
     }
     [self changeDataToConfigNumber:self.num];
@@ -79,7 +79,6 @@
         rowDesc.cellClass == [JMOTableViewCellGreen class]) {
         cellToReturn = [self.tableView dequeueReusableCellWithIdentifier:rowDesc.cellReuseIdentifier];
         cellToReturn.textLabel.text  = rowDesc.data;
-        cellToReturn.textLabel.textColor = [UIColor whiteColor];
     }
     else {
         cellToReturn = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rowDesc.cellReuseIdentifier];

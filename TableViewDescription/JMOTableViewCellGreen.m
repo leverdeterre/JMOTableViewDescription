@@ -15,7 +15,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        [self.contentView setBackgroundColor:[UIColor greenColor]];
+        [self.textLabel setTextColor:[UIColor greenColor]];
+        [self.textLabel setBackgroundColor:[UIColor clearColor]];
+        [self.contentView setBackgroundColor:[[UIColor greenColor] colorWithAlphaComponent:0.15]];
+        [self setBackgroundColor:[[UIColor greenColor] colorWithAlphaComponent:0.15]];
+
     }
     return self;
 }
