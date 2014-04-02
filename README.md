@@ -4,7 +4,7 @@ JMOTableViewDescription is an Objective-C library for easily creating and manage
 
 Why this project?
 * TableView protocols are simple but not adapted to manipulate heterogenous objets or cells in your TableView.
-* Somesituations can lead to very complicated algorithms to construct the right TableViewCell to present a particular object.
+* Some situations can lead to very complicated algorithms to construct the right TableViewCell to present a particular object.
 * SectionHeaderView not reusable?
 
 This project present:
