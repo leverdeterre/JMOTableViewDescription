@@ -37,7 +37,8 @@ You can implement a similar methods to register your nibs in your tableView (no 
 
 ```objc
 - (void)reloadDataFromDescription:(JMOTableViewDescription *)fromDescription 
-                    toDescription:(JMOTableViewDescription *)toDescription animated:(BOOL)animated;
+                    toDescription:(JMOTableViewDescription *)toDescription 
+                         animated:(BOOL)animated;
 ```
 A full dynamic way to reload of your tableView to animated cell modification.
 It's a better UI effect than a reloadData.
