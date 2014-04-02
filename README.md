@@ -14,6 +14,7 @@ This project present:
 * The code produced using this implementation his highly customizable, reusable and flexible. (No more bugs?)
 * TableView delegate and datasource focus on manipulated objet, no indexPath!
 
+![Image](screenshots/concept.png)
 
 Supported iOS & SDK Versions
 -----------------------------
