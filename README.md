@@ -26,7 +26,49 @@ Supported iOS & SDK Versions
 
 NOTE: 'Supported' means that the library has been tested with this version. 'Compatible' means that the library should work on this iOS version (i.e. it doesn't rely on any unavailable SDK features) but is no longer being tested for compatibility and may require tweaking or bug fixes to run correctly.
 
-JMOTableViewDescription exemple
+
+TableViewDescription methods making the life easier
+------------------
+```objc
+- (void)registerCellClassesIntoTableView:(UITableView *)tableView;
+```
+Auto register your classes into your tableView.
+You can implement a similar methods to register your nibs in your tableView (no more dequeReusableCell problems).
+
+```objc
+- (void)reloadDataFromDescription:(JMOTableViewDescription *)fromDescription toDescription:(JMOTableViewDescription *)toDescription animated:(BOOL)animated;
+```
+A full dynamic way to reload of your tableView to animated cell modification.
+It's a better UI effect than a reloadData.
+
+TableViewDatasource / Delegate simplicty ?
+------------------
+```objc
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return self.tableViewDescription.sectionsDescription.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    JMOTableViewSectionDescription *tableSection = self.tableViewDescription.sectionsDescription[section];
+    return tableSection.rowDescriptions.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    JMOTableViewRowDescription *rowDesc = [self.tableViewDescription rowDescriptionForIndexPath:indexPath];
+    return rowDesc.cellHeight;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    JMOTableViewSectionDescription *sectionDesc = [self.tableViewDescription sectionDescriptionForSection:section];
+    return sectionDesc.sectionHeight;
+}
+```
+
+TableViewDescription exemple
 ------------------
 Subclass the default JMOTableViewDescription and declare your method to generate your custom TableViewDescription.
 ```objc
@@ -86,46 +128,6 @@ Subclass the default JMOTableViewDescription and declare your method to generate
   [desc.sectionsDescription addObject:secondSection];
 }
 @end
-```
-JMOTableViewDescription methods making the life easier
-------------------
-```objc
-- (void)registerCellClassesIntoTableView:(UITableView *)tableView;
-```
-Auto register your classes into your tableView.
-You can implement a similar methods to register your nibs in your tableView (no more dequeReusableCell problems).
-
-```objc
-- (void)reloadDataFromDescription:(JMOTableViewDescription *)fromDescription toDescription:(JMOTableViewDescription *)toDescription animated:(BOOL)animated;
-```
-A full dynamic way to reload of your tableView to animated cell modification.
-It's a better UI effect than a reloadData.
-
-TableViewDatasource / Delegate simplicty ?
-------------------
-```objc
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return self.tableViewDescription.sectionsDescription.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    JMOTableViewSectionDescription *tableSection = self.tableViewDescription.sectionsDescription[section];
-    return tableSection.rowDescriptions.count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    JMOTableViewRowDescription *rowDesc = [self.tableViewDescription rowDescriptionForIndexPath:indexPath];
-    return rowDesc.cellHeight;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    JMOTableViewSectionDescription *sectionDesc = [self.tableViewDescription sectionDescriptionForSection:section];
-    return sectionDesc.sectionHeight;
-}
 ```
 
 ------------------
