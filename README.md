@@ -12,7 +12,8 @@ This project present:
 * Datasource / Delegate considerably simplified by using this model,
 * It's a very simple way to produce a "grouped tableView" style without having to use grouped stype!
 * The code produced using this implementation his highly customizable, reusable and flexible. (No more bugs?)
-* TableView delegate and datasource focus on manipulated objet, no indexPath!
+* TableView delegate and datasource focus on manipulated objet, no indexPath!, 
+* HeaderView reuse ? Replace your header by a cell, your first row :) 
 
 ![Image](screenshots/concept.png)
 
