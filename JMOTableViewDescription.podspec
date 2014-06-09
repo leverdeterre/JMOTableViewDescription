@@ -3,6 +3,7 @@ Pod::Spec.new do |s|
   s.name         = "JMOTableViewDescription"
   s.version      = "0.2"
   s.summary      = "JMOTableViewDescription is an iOS library for easily manage complex tableView."
+  s.requires_arc = true
 
   s.description  = <<-DESC
                    JMOTableViewDescription is an Objective-C library for easily creating and manage complex structured tableView.
@@ -13,12 +14,13 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/leverdeterre/JMOTableViewDescription"
-  s.screenshots  = "https://github.com/leverdeterre/JMOTableViewDescription//screenshots/screenshots1", "https://github.com/leverdeterre/JMOTableViewDescription//screenshots/screenshots2"
+  s.screenshots  = "https://github.com/leverdeterre/JMOTableViewDescription/blob/master/screenshots/screenshot1.png",
+                   "https://github.com/leverdeterre/JMOTableViewDescription/blob/master/screenshots/creenshots2.png"
 
   s.license      = 'MIT'
   s.author       = { "jerome Morissard" => "morissardj@gmail.com" }
   s.platform     = :ios, '6.0'
   s.source       = { :git => "https://github.com/leverdeterre/JMOTableViewDescription.git", :tag => "0.2" }
-  s.source_files  = 'Classes', 'TableViewDescription/JMOTableViewDescription/*.{h,m}'
-  s.framework  = 'UIKit'
+  s.source_files = 'Classes', 'TableViewDescription/JMOTableViewDescription/*.{h,m}'
+  s.framework    = 'UIKit'
 end

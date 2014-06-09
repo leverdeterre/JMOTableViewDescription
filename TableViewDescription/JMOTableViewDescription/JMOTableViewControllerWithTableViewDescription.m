@@ -88,7 +88,7 @@
 {
     JMOTableViewSectionDescription *sectionDesc = [self.tableViewDescription sectionDescriptionForSection:section];
     UIView <JMOTableViewDescriptionSectionUpdate> *sectionView;
-    NSString *reuseIdentifier;
+    NSString *reuseIdentifier = nil;
     if (sectionDesc.sectionReuseIdentifier) {
         reuseIdentifier = sectionDesc.sectionReuseIdentifier;
     } else if (sectionDesc.sectionClass) {
@@ -102,16 +102,6 @@
                 [sectionView updateSectionWithDescriptionData:sectionDesc.data];
             }
         }
-    } else {
-        /*
-         sectionView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.frame), sectionDesc.sectionHeight)];
-         UILabel *sectionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.frame), sectionDesc.sectionHeight)];
-         [sectionLabel setBackgroundColor:[UIColor clearColor]];
-         sectionLabel.text = sectionDesc.sectionTitle;
-         sectionLabel.textAlignment = NSTextAlignmentCenter;
-         [sectionView addSubview:sectionLabel];
-         [sectionView setBackgroundColor:[UIColor whiteColor]];
-         */
     }
     
     return sectionView;
