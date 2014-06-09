@@ -114,7 +114,6 @@
     
     if (number == 1) {
         JMOTableViewRowDescription *oneRow = [JMOTableViewRowDescription new];
-        oneRow = [JMOTableViewRowDescription new];
         oneRow.cellClass = [JMOTableViewCellRed class];
         oneRow.cellHeight = 44.0f;
         oneRow.cellReuseIdentifier = @"JMOTableViewCellRed";
@@ -131,7 +130,6 @@
     
     if (number == 2) {
         JMOTableViewRowDescription *oneRow = [JMOTableViewRowDescription new];
-        oneRow = [JMOTableViewRowDescription new];
         oneRow.cellClass = [JMOTableViewCellGreen class];
         oneRow.cellHeight = 150.0f;
         oneRow.cellReuseIdentifier = @"JMOTableViewCellGreen";
@@ -148,7 +146,6 @@
     
     if (number == 1) {
         JMOTableViewRowDescription *oneRow = [JMOTableViewRowDescription new];
-        oneRow = [JMOTableViewRowDescription new];
         oneRow.cellClass = [JMOTableViewCellRed class];
         oneRow.cellHeight = 44.0f;
         oneRow.cellReuseIdentifier = @"JMOTableViewCellRed";
@@ -158,7 +155,6 @@
     
     if (number == 2) {
         JMOTableViewRowDescription *oneRow = [JMOTableViewRowDescription new];
-        oneRow = [JMOTableViewRowDescription new];
         oneRow.cellClass = [JMOTableViewCellGreen class];
         oneRow.cellHeight = 150.0f;
         oneRow.cellReuseIdentifier = @"JMOTableViewCellGreen";
@@ -182,7 +178,6 @@
     
     if (number == 1) {
         JMOTableViewRowDescription *oneRow = [JMOTableViewRowDescription new];
-        oneRow = [JMOTableViewRowDescription new];
         oneRow.cellClass = [JMOTableViewCellRed class];
         oneRow.cellHeight = 150.0f;
         oneRow.cellReuseIdentifier = @"JMOTableViewCellRed";
@@ -220,7 +215,6 @@
         secondSection.sectionClass = [JMOSectionView class];
 
         JMOTableViewRowDescription *oneRow = [JMOTableViewRowDescription new];
-        oneRow = [JMOTableViewRowDescription new];
         oneRow.cellClass = [JMOTableViewCellBlue class];
         oneRow.cellHeight = 20.0f;
         oneRow.cellReuseIdentifier = @"JMOTableViewCellBlue";
@@ -228,14 +222,12 @@
         [secondSection addRowDescription:oneRow];
         
         oneRow = [JMOTableViewRowDescription new];
-        oneRow = [JMOTableViewRowDescription new];
         oneRow.cellClass = [JMOTableViewCellBlue class];
         oneRow.cellHeight = 20.0f;
         oneRow.cellReuseIdentifier = @"JMOTableViewCellBlue";
         oneRow.data = [NSString stringWithFormat:@"%@ (%d)",oneRow.cellReuseIdentifier,(int)oneRow.cellHeight];
         [secondSection addRowDescription:oneRow];
         
-        oneRow = [JMOTableViewRowDescription new];
         oneRow = [JMOTableViewRowDescription new];
         oneRow.cellClass = [JMOTableViewCellBlue class];
         oneRow.cellHeight = 20.0f;
