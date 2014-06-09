@@ -66,7 +66,7 @@
     return cell;
 }
 
-#pragma mark - JOMTableViewDescriptionDelegate
+#pragma mark - JMOTableViewDescriptionDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectDataDescription:(id)selectedData
 {
