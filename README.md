@@ -18,7 +18,7 @@ This project present:
 
 # Supported iOS & SDK Versions
 
-* Supported build target - iOS 7.1 (Xcode 5.1)
+* Supported build target - iOS 8 (Xcode 6 beta)
 * Earliest supported deployment target - iOS 6.0
 * Earliest compatible deployment target - iOS 6.0
 
