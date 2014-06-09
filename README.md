@@ -37,7 +37,7 @@ NOTE: 'Supported' means that the library has been tested with this version. 'Com
 * Add new protocol : JMOTableViewDescriptionDelegate, to be focus on data not on indexPath.
 
 # How to use it ?
- * Implement to own JMODemoTableViewDescription,
+ * Implement your own JMODemoTableViewDescription,
 ```objc
 JMODemoTableViewDescription *desc = [JMODemoTableViewDescription new];
 JMOTableViewSectionDescription *oneSection = [JMOTableViewSectionDescription new];
@@ -67,4 +67,13 @@ return desc;
 }
 ```
 
+ * Implement JMOTableViewDescriptionDelegate to be focus on Data
+```objc
+- (void)tableView:(UITableView *)tableView didSelectDataDescription:(id)selectedData
+{
+    JMOLog(@"Do something with selectedData : %@",selectedData);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TableViewDescriptionDelegate" message:@"Do something with selected Data" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    [alert show];
+}
+```
 
