@@ -37,6 +37,7 @@ Versions
           (JMOViewControllerWithTableViewDescription, JMOTableViewControllerWithTableViewDescription).
         * Add protocols to update Cells, Footers, Headers with data stored into the element description
           ( updateCellWithDescriptionData:(id)data && updateSectionWithDescriptionData:(id)data ).
+        * Add new protocol : JMOTableViewDescriptionDelegate, to be focus on data not on indexPath.
 
 How to use it ?
 ------------------
