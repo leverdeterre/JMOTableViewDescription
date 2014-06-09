@@ -42,19 +42,19 @@ How to use it ?
 ------------------
  * Implement to own JMODemoTableViewDescription,
 ```objc
-        JMODemoTableViewDescription *desc = [JMODemoTableViewDescription new];
-        JMOTableViewSectionDescription *oneSection = [JMOTableViewSectionDescription new];
+JMODemoTableViewDescription *desc = [JMODemoTableViewDescription new];
+JMOTableViewSectionDescription *oneSection = [JMOTableViewSectionDescription new];
 
-        JMOTableViewRowDescription *oneRow = [JMOTableViewRowDescription new];
-        oneRow.cellClass = [UITableViewCell class];
-        oneRow.cellHeight = 30.0f;
-        oneRow.cellReuseIdentifier = @"UITableViewCellIdentifier";
-        oneRow.data = @"My Fake 1st section (it's a cell!)";
-        [oneSection addRowDescription:oneRow];
-        
-       ...
-       return desc;
+JMOTableViewRowDescription *oneRow = [JMOTableViewRowDescription new];
+oneRow.cellClass = [UITableViewCell class];
+oneRow.cellHeight = 30.0f;
+oneRow.cellReuseIdentifier = @"UITableViewCellIdentifier";
+oneRow.data = @"My Fake 1st section (it's a cell!)";
+[oneSection addRowDescription:oneRow];
+...
+return desc;
 ```
+
  * Implement your own cell update to manage special case
 ```objc
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
