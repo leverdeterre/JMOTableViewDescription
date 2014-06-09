@@ -117,4 +117,15 @@
     return sectionView;
 }
 
+#pragma mark - JMOTableViewDescriptionDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self respondsToSelector:@selector(tableView:didSelectDataDescription:)]) {
+        JMOTableViewRowDescription *rowDesc = [self.tableViewDescription rowDescriptionForIndexPath:indexPath];
+        [self tableView:tableView didSelectDataDescription:rowDesc.data];
+        return;
+    }
+}
+
 @end

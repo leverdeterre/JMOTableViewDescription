@@ -22,14 +22,19 @@
 #ifndef TableViewDescription_JMOTableViewDescriptionHeaders_h
 #define TableViewDescription_JMOTableViewDescriptionHeaders_h
 
-#import "JMOTableViewDescriptionControllers.h"
+//Controllers
+#import "JMOViewControllerWithTableViewDescription.h"
+#import "JMOTableViewControllerWithTableViewDescription.h"
+
+//Models
 #import "JMOTableViewDescriptionModels.h"
 
+//Protocols
 #import "JMOTableViewDescriptionCellUpdate.h"
 #import "JMOTableViewDescriptionSectionUpdate.h"
+#import "JMOTableViewDescriptionDelegate.h"
 
-#import "JMOTableViewDescriptionControllers.h"
-
+//UI
 #import "JMOTableViewDescriptionUI.h"
 
 #endif

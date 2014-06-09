@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JMOTableViewDescriptionDelegate.h"
+
 @class JMOTableViewDescription;
 
-@interface JMOTableViewControllerWithTableViewDescription : UITableViewController
+@interface JMOTableViewControllerWithTableViewDescription : UITableViewController <JMOTableViewDescriptionDelegate>
 
 @property (strong, nonatomic) JMOTableViewDescription *tableViewDescription;
 

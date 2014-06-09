@@ -66,4 +66,13 @@
     return cell;
 }
 
+#pragma mark - JOMTableViewDescriptionDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectDataDescription:(id)selectedData
+{
+    JMOLog(@"Do something with selectedData : %@",selectedData);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TableViewDescriptionDelegate" message:@"Do something with selected Data" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    [alert show];
+}
+
 @end

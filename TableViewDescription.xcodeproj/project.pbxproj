@@ -63,6 +63,7 @@
 		C255BDFC1945E80C00EBDF76 /* JMOSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMOSectionView.m; sourceTree = "<group>"; };
 		C255BDFE1945F05400EBDF76 /* JMOTableViewControllerWithTableViewDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMOTableViewControllerWithTableViewDescription.h; sourceTree = "<group>"; };
 		C255BDFF1945F05400EBDF76 /* JMOTableViewControllerWithTableViewDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMOTableViewControllerWithTableViewDescription.m; sourceTree = "<group>"; };
+		C255BE011945F4C000EBDF76 /* JMOTableViewDescriptionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMOTableViewDescriptionDelegate.h; sourceTree = "<group>"; };
 		C280755218E61C390068961F /* JMOTableViewCellRed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMOTableViewCellRed.h; sourceTree = "<group>"; };
 		C280755318E61C390068961F /* JMOTableViewCellRed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMOTableViewCellRed.m; sourceTree = "<group>"; };
 		C280755518E61C760068961F /* JMOTableViewCellBlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMOTableViewCellBlue.h; sourceTree = "<group>"; };
@@ -167,6 +168,7 @@
 		C255BDF81945E00700EBDF76 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				C255BE011945F4C000EBDF76 /* JMOTableViewDescriptionDelegate.h */,
 				C255BDF61945DFA300EBDF76 /* JMOTableViewDescriptionCellUpdate.h */,
 				C255BDF71945DFFF00EBDF76 /* JMOTableViewDescriptionSectionUpdate.h */,
 			);
