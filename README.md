@@ -7,7 +7,6 @@ JMOTableViewDescription is an Objective-C library for easily creating and manage
 Why this project?
 * TableView protocols are simple but not adapted to manipulate heterogenous objets or cells in your TableView.
 * Some situations can lead to very complicated algorithms to construct the right TableViewCell to present a particular object.
-* SectionHeaderView not reusable?
 
 This project present:
 * A new way to describe your tableView "layout" with a very simple method (a model),
@@ -39,27 +38,36 @@ Versions
         * Add protocols to update Cells, Footers, Headers with data stored into the element description
           ( updateCellWithDescriptionData:(id)data && updateSectionWithDescriptionData:(id)data ).
 
-TableViewDescription methods making the life easier
-------------------
-```objc
-- (void)registerClassesInTableView:(UITableView *)tableView;
-```
-Auto register your classes into your tableView.
-You can implement a similar methods to register your nibs in your tableView (no more dequeReusableCell problems).
-
-```objc
-- (void)reloadDataFromDescription:(JMOTableViewDescription *)fromDescription 
-                    toDescription:(JMOTableViewDescription *)toDescription 
-                         animated:(BOOL)animated;
-```
-A full dynamic way to reload of your tableView to animated cell modification.
-It's a better UI effect than a reloadData.
-
 How to use it ?
 ------------------
-Implement to own JMODemoTableViewDescription
+ * Implement to own JMODemoTableViewDescription,
 ```objc
+        JMODemoTableViewDescription *desc = [JMODemoTableViewDescription new];
+        JMOTableViewSectionDescription *oneSection = [JMOTableViewSectionDescription new];
 
+        JMOTableViewRowDescription *oneRow = [JMOTableViewRowDescription new];
+        oneRow.cellClass = [UITableViewCell class];
+        oneRow.cellHeight = 30.0f;
+        oneRow.cellReuseIdentifier = @"UITableViewCellIdentifier";
+        oneRow.data = @"My Fake 1st section (it's a cell!)";
+        [oneSection addRowDescription:oneRow];
+        
+       ...
+       return desc;
+```
+ * Implement your own cell update to manage special case
+```objc
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    //You can manage your own custom update
+    if (cell.class == UITableViewCell.class) {
+        JMOTableViewRowDescription *rowDesc = [self.tableViewDescription rowDescriptionForIndexPath:indexPath];
+        cell.textLabel.text = rowDesc.data;
+    } 
+    return cell;
+}
 ```
 
 
