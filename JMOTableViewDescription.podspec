@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "https://github.com/leverdeterre/JMOTableViewDescription"
-  s.screenshots  = "https://github.com/leverdeterre/JMOTableViewDescription/blob/master/screenshots/screenshot1.png",
-                   "https://github.com/leverdeterre/JMOTableViewDescription/blob/master/screenshots/screenshots2.png"
+  s.screenshots  = "http://raw.githubusercontent.com/leverdeterre/JMOTableViewDescription/master/screenshots/screenshot1.png",
+                   "http://raw.githubusercontent.com/leverdeterre/JMOTableViewDescription/master/screenshots/screenshot2.png"
 
   s.license      = 'MIT'
   s.author       = { "jerome Morissard" => "morissardj@gmail.com" }
