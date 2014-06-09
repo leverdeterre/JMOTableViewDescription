@@ -1,5 +1,5 @@
-Purpose
---------------
+# Purpose
+
 JMOTableViewDescription is an Objective-C library for easily creating and manage complex structured tableView.
 
 ![Image](screenshots/concept.png)
@@ -16,8 +16,7 @@ This project present:
 * TableView delegate and datasource focus on manipulated objet, no indexPath!, 
 * HeaderView reuse ? Replace your header by a cell, your first row :) 
 
-Supported iOS & SDK Versions
------------------------------
+# Supported iOS & SDK Versions
 
 * Supported build target - iOS 7.1 (Xcode 5.1)
 * Earliest supported deployment target - iOS 6.0
@@ -26,22 +25,18 @@ Supported iOS & SDK Versions
 NOTE: 'Supported' means that the library has been tested with this version. 'Compatible' means that the library should work on this iOS version (i.e. it doesn't rely on any unavailable SDK features) but is no longer being tested for compatibility and may require tweaking or bug fixes to run correctly.
 
 
-------------------
+## Versions
 
-Versions
-------------------
+###### 0.1, Initial release
+###### 0.2  
+* Add methods to automaticly register cells and header/footer views.
+* Add ViewControllers with generic implementations of UITableViewDatasource/delegate
+  (JMOViewControllerWithTableViewDescription, JMOTableViewControllerWithTableViewDescription).
+* Add protocols to update Cells, Footers, Headers with data stored into the element description
+  ( updateCellWithDescriptionData:(id)data && updateSectionWithDescriptionData:(id)data ).
+* Add new protocol : JMOTableViewDescriptionDelegate, to be focus on data not on indexPath.
 
-## 0.1, Initial release
-## 0.2  
-        * Add methods to automaticly register cells and header/footer views.
-        * Add ViewControllers with generic implementations of UITableViewDatasource/delegate
-          (JMOViewControllerWithTableViewDescription, JMOTableViewControllerWithTableViewDescription).
-        * Add protocols to update Cells, Footers, Headers with data stored into the element description
-          ( updateCellWithDescriptionData:(id)data && updateSectionWithDescriptionData:(id)data ).
-        * Add new protocol : JMOTableViewDescriptionDelegate, to be focus on data not on indexPath.
-
-How to use it ?
-------------------
+# How to use it ?
  * Implement to own JMODemoTableViewDescription,
 ```objc
 JMODemoTableViewDescription *desc = [JMODemoTableViewDescription new];
