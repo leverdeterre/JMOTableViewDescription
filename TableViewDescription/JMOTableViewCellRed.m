@@ -23,4 +23,11 @@
     return self;
 }
 
+#pragma mark - JMOTableViewDescriptionCellUpdate
+
+- (void)updateCellWithDescriptionData:(id)data
+{
+    self.textLabel.text = data;
+}
+
 @end

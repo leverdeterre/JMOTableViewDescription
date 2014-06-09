@@ -14,6 +14,5 @@
 @property (strong, nonatomic) NSString *cellReuseIdentifier;
 @property (strong, nonatomic) id data;
 @property (assign, nonatomic) CGFloat cellHeight;
-@property (strong, nonatomic) NSString *cellTitle;
 
 @end

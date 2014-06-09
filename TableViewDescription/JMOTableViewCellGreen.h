@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Jerome Morissard. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "JMOTableViewDescriptionCell.h"
 
-@interface JMOTableViewCellGreen : UITableViewCell
+@interface JMOTableViewCellGreen : JMOTableViewDescriptionCell
 
 @end

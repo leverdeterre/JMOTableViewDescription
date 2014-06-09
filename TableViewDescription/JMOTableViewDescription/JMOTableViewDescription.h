@@ -16,7 +16,7 @@
 
 @property (strong, nonatomic) NSMutableArray *sectionsDescription;
 
-- (void)registerCellClassesIntoTableView:(UITableView *)tableView;
+- (void)registerClassesInTableView:(UITableView *)tableView;
 
 - (JMOTableViewSectionDescription *)sectionDescriptionForSection:(NSInteger)section;
 - (JMOTableViewRowDescription *)rowDescriptionForIndexPath:(NSIndexPath *)indexPath;

@@ -13,9 +13,9 @@
 
 @property (strong, nonatomic) Class sectionClass;
 @property (strong, nonatomic) NSString *sectionReuseIdentifier;
-@property (strong, nonatomic, readonly) NSMutableArray *rowDescriptions; //JMOTableViewRowDescription
-@property (strong, nonatomic) NSString *sectionTitle;
 @property (assign, nonatomic) CGFloat sectionHeight;
+@property (strong, nonatomic) id data;
+@property (strong, nonatomic, readonly) NSMutableArray *rowDescriptions; //JMOTableViewRowDescription
 
 - (void)addRowDescription:(JMOTableViewRowDescription *)rowDesc;
 

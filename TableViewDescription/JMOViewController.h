@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JMOViewControllerWithTableViewDescription.h"
 
-@interface JMOViewController : UIViewController
+@interface JMOViewController : JMOViewControllerWithTableViewDescription
 
 @end
