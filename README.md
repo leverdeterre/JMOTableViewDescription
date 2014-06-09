@@ -31,8 +31,8 @@ NOTE: 'Supported' means that the library has been tested with this version. 'Com
 Versions
 ------------------
 
-* 0.1, Initial release
-* 0.2,  
+## 0.1, Initial release
+## 0.2  
         * Add methods to automaticly register cells and header/footer views.
         * Add ViewControllers with generic implementations of UITableViewDatasource/delegate
           (JMOViewControllerWithTableViewDescription, JMOTableViewControllerWithTableViewDescription).
