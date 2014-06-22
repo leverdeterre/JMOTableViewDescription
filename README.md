@@ -61,6 +61,7 @@ return desc;
 - (void)updateCellWithRowDescription:(id)data;
 
 @end
+```
 
  * Implement your own cell update to manage special case
 ```objc
