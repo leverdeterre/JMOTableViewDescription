@@ -63,12 +63,13 @@
     UITableViewCell <JMOTableViewDescriptionCellUpdate> *cellToReturn;
     JMOTableViewRowDescription *rowDesc = [self.tableViewDescription rowDescriptionForIndexPath:indexPath];
     cellToReturn = [self.tableView dequeueReusableCellWithIdentifier:rowDesc.cellReuseIdentifier];
-    if ([cellToReturn respondsToSelector:@selector(updateCellWithDescriptionData:)]) {
-        [cellToReturn updateCellWithDescriptionData:rowDesc.data];
+    if ([cellToReturn respondsToSelector:@selector(updateCellWithData:)]) {
+        [cellToReturn updateCellWithData:rowDesc.data];
+    } else if ([cellToReturn respondsToSelector:@selector(updateCellWithRowDescription:)]) {
+        [cellToReturn updateCellWithRowDescription:rowDesc];
     }
     return cellToReturn;
 }
-
 
 #pragma mark - UITableViewDelegate
 
@@ -88,7 +89,7 @@
 {
     JMOTableViewSectionDescription *sectionDesc = [self.tableViewDescription sectionDescriptionForSection:section];
     UIView <JMOTableViewDescriptionSectionUpdate> *sectionView;
-    NSString *reuseIdentifier = nil;
+    NSString *reuseIdentifier;
     if (sectionDesc.sectionReuseIdentifier) {
         reuseIdentifier = sectionDesc.sectionReuseIdentifier;
     } else if (sectionDesc.sectionClass) {
@@ -98,10 +99,22 @@
     if (reuseIdentifier) {
         if([self.tableView respondsToSelector:@selector(dequeueReusableHeaderFooterViewWithIdentifier:)]) {
             sectionView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
-            if ([sectionView respondsToSelector:@selector(updateSectionWithDescriptionData:)]) {
-                [sectionView updateSectionWithDescriptionData:sectionDesc.data];
+            if ([sectionView respondsToSelector:@selector(updateSectionWithData:)]) {
+                [sectionView updateSectionWithData:sectionDesc.data];
+            } else if ([sectionView respondsToSelector:@selector(updateSectionWithSectionDescription:)]) {
+                [sectionView updateSectionWithSectionDescription:sectionDesc];
             }
         }
+    } else {
+        /*
+         sectionView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.frame), sectionDesc.sectionHeight)];
+         UILabel *sectionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.frame), sectionDesc.sectionHeight)];
+         [sectionLabel setBackgroundColor:[UIColor clearColor]];
+         sectionLabel.text = sectionDesc.sectionTitle;
+         sectionLabel.textAlignment = NSTextAlignmentCenter;
+         [sectionView addSubview:sectionLabel];
+         [sectionView setBackgroundColor:[UIColor whiteColor]];
+         */
     }
     
     return sectionView;

@@ -74,12 +74,13 @@
     UITableViewCell <JMOTableViewDescriptionCellUpdate> *cellToReturn;
     JMOTableViewRowDescription *rowDesc = [self.tableViewDescription rowDescriptionForIndexPath:indexPath];
     cellToReturn = [self.tableView dequeueReusableCellWithIdentifier:rowDesc.cellReuseIdentifier];
-    if ([cellToReturn respondsToSelector:@selector(updateCellWithDescriptionData:)]) {
-        [cellToReturn updateCellWithDescriptionData:rowDesc.data];
+    if ([cellToReturn respondsToSelector:@selector(updateCellWithData:)]) {
+        [cellToReturn updateCellWithData:rowDesc.data];
+    } else if ([cellToReturn respondsToSelector:@selector(updateCellWithRowDescription:)]) {
+        [cellToReturn updateCellWithRowDescription:rowDesc];
     }
     return cellToReturn;
 }
-
 
 #pragma mark - UITableViewDelegate
 
@@ -109,8 +110,10 @@
     if (reuseIdentifier) {
         if([self.tableView respondsToSelector:@selector(dequeueReusableHeaderFooterViewWithIdentifier:)]) {
             sectionView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
-            if ([sectionView respondsToSelector:@selector(updateSectionWithDescriptionData:)]) {
-                [sectionView updateSectionWithDescriptionData:sectionDesc.data];
+            if ([sectionView respondsToSelector:@selector(updateSectionWithData:)]) {
+                [sectionView updateSectionWithData:sectionDesc.data];
+            } else if ([sectionView respondsToSelector:@selector(updateSectionWithSectionDescription:)]) {
+                [sectionView updateSectionWithSectionDescription:sectionDesc];
             }
         }
     } else {

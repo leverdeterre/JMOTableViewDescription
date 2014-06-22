@@ -11,6 +11,7 @@
 @protocol JMOTableViewDescriptionCellUpdate <NSObject>
 
 @optional
-- (void)updateCellWithDescriptionData:(id)data;
+- (void)updateCellWithData:(id)data;
+- (void)updateCellWithRowDescription:(id)data;
 
 @end
