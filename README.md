@@ -52,6 +52,16 @@ oneRow.data = @"My Fake 1st section (it's a cell!)";
 return desc;
 ```
 
+ * Implement your generic cell/section update 
+ ```objc
+@protocol JMOTableViewDescriptionCellUpdate <NSObject>
+
+@optional
+- (void)updateCellWithData:(id)data;
+- (void)updateCellWithRowDescription:(id)data;
+
+@end
+
  * Implement your own cell update to manage special case
 ```objc
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
