@@ -53,7 +53,7 @@ return desc;
 ```
 
  * Implement your generic cell/section update 
- ```objc
+```objc
 @protocol JMOTableViewDescriptionCellUpdate <NSObject>
 
 @optional
