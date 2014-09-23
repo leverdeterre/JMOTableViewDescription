@@ -40,9 +40,14 @@
         //register sectionClass
         [self registerHeaderFooterClass:sectionDesc.sectionClass withIdentifier:sectionDesc.sectionReuseIdentifier inTableView:tableView];
 
-        //register cellClass
+        //register cellClass / Xibs
         [sectionDesc.rowDescriptions enumerateObjectsUsingBlock:^(JMOTableViewRowDescription *cellDesc, NSUInteger idx, BOOL *stop) {
-            [self registerCellClass:cellDesc.cellClass withIdentifier:cellDesc.cellReuseIdentifier inTableView:tableView];
+            if (cellDesc.cellClass && cellDesc.cellReuseIdentifier) {
+                [self registerCellClass:cellDesc.cellClass withIdentifier:cellDesc.cellReuseIdentifier inTableView:tableView];
+                
+            } else if (cellDesc.cellReuseIdentifier) {
+                [self registerNibAssociatedToReuseIdentifier:cellDesc.cellReuseIdentifier inTableView:tableView];
+            }
         }];
     }];
 }
@@ -58,6 +63,14 @@
     
     if (cellClass && reuseIdentifier) {
         [tableView registerClass:cellClass forCellReuseIdentifier:reuseIdentifier];
+    }
+}
+
+- (void)registerNibAssociatedToReuseIdentifier:(NSString *)cellIdentifier inTableView:(UITableView *)tableView
+{
+    UINib *nib = [UINib nibWithNibName:cellIdentifier bundle:nil];
+    if (nib) {
+        [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
     }
 }
 
