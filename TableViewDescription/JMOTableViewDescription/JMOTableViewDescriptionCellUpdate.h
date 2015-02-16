@@ -13,6 +13,6 @@
 
 @optional
 - (void)updateCellWithData:(id)data;
-- (void)updateCellWitDescription:(JMOTableViewRowDescription *)description;
+- (void)updateCellWithDescription:(JMOTableViewRowDescription *)description;
 
 @end

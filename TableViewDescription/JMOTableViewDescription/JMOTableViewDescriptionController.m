@@ -14,6 +14,8 @@
 #import "JMOTableViewDescriptionCellUpdate.h"
 #import "JMOTableViewDescriptionSectionUpdate.h"
 
+#import "JMOTableViewDescriptionHeaders.h"
+
 @interface JMOTableViewDescriptionController ()
 @end
 
@@ -64,12 +66,16 @@
     JMOTableViewRowDescription *rowDesc = [self.tableViewDescription rowDescriptionForIndexPath:indexPath];
     cellToReturn = [self.tableView dequeueReusableCellWithIdentifier:rowDesc.cellReuseIdentifier];
     
-    if ([cellToReturn respondsToSelector:@selector(updateCellWitDescription:)]) {
-        [cellToReturn updateCellWitDescription:rowDesc];
+    if ([cellToReturn respondsToSelector:@selector(updateCellWithDescription:)]) {
+        [cellToReturn updateCellWithDescription:rowDesc];
         
     } else if ([cellToReturn respondsToSelector:@selector(updateCellWithData:)]) {
         [cellToReturn updateCellWithData:rowDesc.data];
+    
+    } else {
+        JMOLog(@"WARNING !! no update founds, for methods for protocol JMOTableViewDescriptionCellUpdate");
     }
+    
     return cellToReturn;
 }
 
@@ -104,8 +110,12 @@
             sectionView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
             if ([sectionView respondsToSelector:@selector(updateSectionWithDescription:)]) {
                 [sectionView updateSectionWithDescription:sectionDesc];
+                
             } else if ([sectionView respondsToSelector:@selector(updateSectionWithData:)]) {
                 [sectionView updateSectionWithData:sectionDesc.data];
+                
+            } else {
+                JMOLog(@"WARNING !! no update founds, for methods for protocol JMOTableViewDescriptionSectionUpdate");
             }
         }
     }
@@ -121,6 +131,8 @@
         JMOTableViewRowDescription *rowDesc = [self.tableViewDescription rowDescriptionForIndexPath:indexPath];
         [self tableView:tableView didSelectRowAtIndexPath:indexPath rowDescription:rowDesc];
         return;
+    } else {
+        JMOLog(@"WARNING !! no update founds, for methods for protocol JMOTableViewDescriptionDelegate");
     }
 }
 
