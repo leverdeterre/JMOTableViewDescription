@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class JMOTableViewRowDescription;
+@class JMOTableViewSectionDescription;
 @protocol JMOTableViewDescriptionDelegate <UITableViewDelegate>
 
 @optional
-- (void)tableView:(UITableView *)tableView didSelectDataDescription:(id)selectedData;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath rowDescription:(JMOTableViewRowDescription *)rowDescription;
+- (void)tableView:(UITableView *)tableView didSelectSectionAtIndex:(NSInteger)index sectionDescription:(JMOTableViewSectionDescription *)sectionDescription;
 @end

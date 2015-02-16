@@ -9,18 +9,6 @@
 #import "UITableView+TableViewDescription.h"
 #import "JMOTableViewDescription.h"
 
-#ifndef iAppInfos_LogMacro_h
-#define iAppInfos_LogMacro_h
-
-// Log using the same parameters above but include the function name and source code line number in the log statement
-#ifdef DEBUG
-#define JMOLog(fmt, ...) NSLog((@"Func: %s, Line: %d, " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-#else
-#define JMOLog(...)
-#endif
-
-#endif
-
 @implementation UITableView (TableViewDescription)
 
 - (void)reloadDataFromDescription:(JMOTableViewDescription *)fromDescription toDescription:(JMOTableViewDescription *)toDescription animated:(BOOL)animated
@@ -46,7 +34,7 @@
         NSMutableIndexSet *indexSetToRemove = [NSMutableIndexSet new];
         for (int i = 0; i < (fromSectionDescriptions.count - toSectionDescriptions.count) ; i++) {
             [indexSetToRemove addIndex:(fromSectionDescriptions.count -i -1)];
-            JMOLog(@"deleteSection %@",@(fromSectionDescriptions.count -i -1));
+            NSLog(@"deleteSection %@",@(fromSectionDescriptions.count -i -1));
             
         }
         [self deleteSections:indexSetToRemove withRowAnimation:UITableViewRowAnimationFade];
@@ -56,13 +44,13 @@
         for (int i = 0; i < ( toSectionDescriptions.count - fromSectionDescriptions.count) ; i++) {
             [indexSetToadd addIndex:(fromSectionDescriptions.count + i)];
             [insertedSection addObject:@(fromSectionDescriptions.count + i)];
-            JMOLog(@"insertSections %@",@(fromSectionDescriptions.count + i));
+            NSLog(@"insertSections %@",@(fromSectionDescriptions.count + i));
         }
         [self insertSections:indexSetToadd withRowAnimation:UITableViewRowAnimationFade];
     }
     else {
         //No changes of number of section
-        JMOLog(@"No changes of number of section");
+        NSLog(@"No changes of number of section");
     }
     
     //Update rows
@@ -90,11 +78,11 @@
         
         //
         if (indexPathtsToRemove.count > 0) {
-            JMOLog(@"deleteRowsAtIndexPaths %@",indexPathtsToRemove);
+            NSLog(@"deleteRowsAtIndexPaths %@",indexPathtsToRemove);
             [self deleteRowsAtIndexPaths:indexPathtsToRemove withRowAnimation:UITableViewRowAnimationFade];
         }
         if (indexPathtsToAdd.count > 0) {
-            JMOLog(@"insertRowsAtIndexPaths %@",indexPathtsToAdd);
+            NSLog(@"insertRowsAtIndexPaths %@",indexPathtsToAdd);
             [self insertRowsAtIndexPaths:indexPathtsToAdd withRowAnimation:UITableViewRowAnimationFade];
         }
     }
@@ -111,7 +99,7 @@
             }
         }
         
-        JMOLog(@"insertRowsAtIndexPaths %@",indexPathtsToAdd);
+        NSLog(@"insertRowsAtIndexPaths %@",indexPathtsToAdd);
         [self insertRowsAtIndexPaths:indexPathtsToAdd withRowAnimation:UITableViewRowAnimationFade];
     }
     

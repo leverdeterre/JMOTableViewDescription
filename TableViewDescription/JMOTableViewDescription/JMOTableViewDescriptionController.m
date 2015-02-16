@@ -1,12 +1,12 @@
 //
-//  JMOTableViewControllerWithTableViewDescription.m
+//  JMOTableViewDescriptionController.m
 //  TableViewDescription
 //
 //  Created by Jerome Morissard on 6/9/14.
 //  Copyright (c) 2014 Jerome Morissard. All rights reserved.
 //
 
-#import "JMOTableViewControllerWithTableViewDescription.h"
+#import "JMOTableViewDescriptionController.h"
 #import "JMOTableViewDescription.h"
 #import "JMOTableViewDescriptionUI.h"
 
@@ -14,10 +14,10 @@
 #import "JMOTableViewDescriptionCellUpdate.h"
 #import "JMOTableViewDescriptionSectionUpdate.h"
 
-@interface JMOTableViewControllerWithTableViewDescription ()
+@interface JMOTableViewDescriptionController ()
 @end
 
-@implementation JMOTableViewControllerWithTableViewDescription
+@implementation JMOTableViewDescriptionController
 
 #pragma mark - Overided setters
 
@@ -63,13 +63,16 @@
     UITableViewCell <JMOTableViewDescriptionCellUpdate> *cellToReturn;
     JMOTableViewRowDescription *rowDesc = [self.tableViewDescription rowDescriptionForIndexPath:indexPath];
     cellToReturn = [self.tableView dequeueReusableCellWithIdentifier:rowDesc.cellReuseIdentifier];
-    if ([cellToReturn respondsToSelector:@selector(updateCellWithData:)]) {
+    
+    if ([cellToReturn respondsToSelector:@selector(updateCellWitDescription:)]) {
+        [cellToReturn updateCellWitDescription:rowDesc];
+        
+    } else if ([cellToReturn respondsToSelector:@selector(updateCellWithData:)]) {
         [cellToReturn updateCellWithData:rowDesc.data];
-    } else if ([cellToReturn respondsToSelector:@selector(updateCellWithRowDescription:)]) {
-        [cellToReturn updateCellWithRowDescription:rowDesc];
     }
     return cellToReturn;
 }
+
 
 #pragma mark - UITableViewDelegate
 
@@ -89,7 +92,7 @@
 {
     JMOTableViewSectionDescription *sectionDesc = [self.tableViewDescription sectionDescriptionForSection:section];
     UIView <JMOTableViewDescriptionSectionUpdate> *sectionView;
-    NSString *reuseIdentifier;
+    NSString *reuseIdentifier = nil;
     if (sectionDesc.sectionReuseIdentifier) {
         reuseIdentifier = sectionDesc.sectionReuseIdentifier;
     } else if (sectionDesc.sectionClass) {
@@ -99,22 +102,12 @@
     if (reuseIdentifier) {
         if([self.tableView respondsToSelector:@selector(dequeueReusableHeaderFooterViewWithIdentifier:)]) {
             sectionView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
-            if ([sectionView respondsToSelector:@selector(updateSectionWithData:)]) {
+            if ([sectionView respondsToSelector:@selector(updateSectionWithDescription:)]) {
+                [sectionView updateSectionWithDescription:sectionDesc];
+            } else if ([sectionView respondsToSelector:@selector(updateSectionWithData:)]) {
                 [sectionView updateSectionWithData:sectionDesc.data];
-            } else if ([sectionView respondsToSelector:@selector(updateSectionWithSectionDescription:)]) {
-                [sectionView updateSectionWithSectionDescription:sectionDesc];
             }
         }
-    } else {
-        /*
-         sectionView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.frame), sectionDesc.sectionHeight)];
-         UILabel *sectionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.frame), sectionDesc.sectionHeight)];
-         [sectionLabel setBackgroundColor:[UIColor clearColor]];
-         sectionLabel.text = sectionDesc.sectionTitle;
-         sectionLabel.textAlignment = NSTextAlignmentCenter;
-         [sectionView addSubview:sectionLabel];
-         [sectionView setBackgroundColor:[UIColor whiteColor]];
-         */
     }
     
     return sectionView;
@@ -124,9 +117,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self respondsToSelector:@selector(tableView:didSelectDataDescription:)]) {
+    if ([self respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:rowDescription:)]) {
         JMOTableViewRowDescription *rowDesc = [self.tableViewDescription rowDescriptionForIndexPath:indexPath];
-        [self tableView:tableView didSelectDataDescription:rowDesc.data];
+        [self tableView:tableView didSelectRowAtIndexPath:indexPath rowDescription:rowDesc];
         return;
     }
 }

@@ -40,16 +40,22 @@
         //register sectionClass
         [self registerHeaderFooterClass:sectionDesc.sectionClass withIdentifier:sectionDesc.sectionReuseIdentifier inTableView:tableView];
 
-        //register cellClass / Xibs
+        //register cellClass
         [sectionDesc.rowDescriptions enumerateObjectsUsingBlock:^(JMOTableViewRowDescription *cellDesc, NSUInteger idx, BOOL *stop) {
-            if (cellDesc.cellClass && cellDesc.cellReuseIdentifier) {
+            
+            if (cellDesc.cellNibName.length) {
+                [self registerNibName:cellDesc.cellNibName withIdentifier:cellDesc.cellReuseIdentifier inTableView:tableView];
+            
+            } else if (cellDesc.cellClass) {
                 [self registerCellClass:cellDesc.cellClass withIdentifier:cellDesc.cellReuseIdentifier inTableView:tableView];
-                
-            } else if (cellDesc.cellReuseIdentifier) {
-                [self registerNibAssociatedToReuseIdentifier:cellDesc.cellReuseIdentifier inTableView:tableView];
             }
         }];
     }];
+}
+
+- (void)registerNibName:(NSString *)nibName withIdentifier:(NSString *)cellIdentifier inTableView:(UITableView *)tableView
+{
+    [tableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellReuseIdentifier:cellIdentifier];
 }
 
 - (void)registerCellClass:(Class)cellClass withIdentifier:(NSString *)cellIdentifier inTableView:(UITableView *)tableView
@@ -63,14 +69,6 @@
     
     if (cellClass && reuseIdentifier) {
         [tableView registerClass:cellClass forCellReuseIdentifier:reuseIdentifier];
-    }
-}
-
-- (void)registerNibAssociatedToReuseIdentifier:(NSString *)cellIdentifier inTableView:(UITableView *)tableView
-{
-    UINib *nib = [UINib nibWithNibName:cellIdentifier bundle:nil];
-    if (nib) {
-        [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
     }
 }
 
@@ -88,8 +86,6 @@
     }
 }
 
-
-
 #pragma mark - Helpers
 
 - (JMOTableViewSectionDescription *)sectionDescriptionForSection:(NSInteger)section
@@ -102,6 +98,35 @@
     JMOTableViewSectionDescription *tableSection =  self.sectionsDescription[indexPath.section];
     JMOTableViewRowDescription *rowDesc = tableSection.rowDescriptions[indexPath.row];
     return rowDesc;
+}
+
+- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath
+{
+    JMOTableViewSectionDescription *tableSection =  self.sectionsDescription[indexPath.section];
+    JMOTableViewRowDescription *rowDesc = tableSection.rowDescriptions[indexPath.row];
+//NSLog(@"section %ld -> nbRow %ld",(long)indexPath.section, (long)tableSection.rowDescriptions.count);
+    [tableSection.rowDescriptions removeObject:rowDesc];
+//NSLog(@"section %ld -> nbRow %ld",(long)indexPath.section, (long)tableSection.rowDescriptions.count);
+
+    JMOTableViewSectionDescription *nwTableSection =  self.sectionsDescription[newIndexPath.section];
+    if (newIndexPath.row == 0) {
+        [nwTableSection.rowDescriptions insertObject:rowDesc atIndex:0];
+    } else {
+        [nwTableSection.rowDescriptions insertObject:rowDesc atIndex:newIndexPath.row];
+    }
+    
+//NSLog(@"section %ld -> nbRow %ld",(long)indexPath.section, (long)nwTableSection.rowDescriptions.count);
+}
+
+- (void)moveSection:(NSInteger)section toSection:(NSInteger)newSection
+{
+    JMOTableViewSectionDescription *tableSection =  self.sectionsDescription[section];
+    [self.sectionsDescription removeObject:tableSection];
+    if (newSection == 0) {
+        [self.sectionsDescription insertObject:tableSection atIndex:0];
+    } else {
+        [self.sectionsDescription insertObject:tableSection atIndex:newSection-1];
+    }
 }
 
 @end

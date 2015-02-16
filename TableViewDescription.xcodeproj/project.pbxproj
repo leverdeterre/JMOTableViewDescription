@@ -11,7 +11,6 @@
 		C255BDF01945DE0A00EBDF76 /* JMOTableViewDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C255BDEF1945DE0A00EBDF76 /* JMOTableViewDescriptionCell.m */; };
 		C255BDF31945DE4E00EBDF76 /* JMOTableViewSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C255BDF21945DE4E00EBDF76 /* JMOTableViewSectionView.m */; };
 		C255BDFD1945E80C00EBDF76 /* JMOSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C255BDFC1945E80C00EBDF76 /* JMOSectionView.m */; };
-		C255BE001945F05400EBDF76 /* JMOTableViewControllerWithTableViewDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = C255BDFF1945F05400EBDF76 /* JMOTableViewControllerWithTableViewDescription.m */; };
 		C280755418E61C390068961F /* JMOTableViewCellRed.m in Sources */ = {isa = PBXBuildFile; fileRef = C280755318E61C390068961F /* JMOTableViewCellRed.m */; };
 		C280755718E61C760068961F /* JMOTableViewCellBlue.m in Sources */ = {isa = PBXBuildFile; fileRef = C280755618E61C760068961F /* JMOTableViewCellBlue.m */; };
 		C280755A18E6212F0068961F /* JMOTableViewCellGreen.m in Sources */ = {isa = PBXBuildFile; fileRef = C280755918E6212F0068961F /* JMOTableViewCellGreen.m */; };
@@ -34,6 +33,7 @@
 		C29D1AB918DAC0A80011C2E7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C29D1AB718DAC0A80011C2E7 /* InfoPlist.strings */; };
 		C29D1ABB18DAC0A80011C2E7 /* TableViewDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C29D1ABA18DAC0A80011C2E7 /* TableViewDescriptionTests.m */; };
 		C29D1AD018DAC3010011C2E7 /* JMODemoTableViewDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = C29D1ACF18DAC3010011C2E7 /* JMODemoTableViewDescription.m */; };
+		C2EB6C561A92029400A6DE03 /* JMOTableViewDescriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB6C551A92029400A6DE03 /* JMOTableViewDescriptionController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +61,6 @@
 		C255BDFA1945E6DB00EBDF76 /* JMOTableViewDescriptionModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMOTableViewDescriptionModels.h; sourceTree = "<group>"; };
 		C255BDFB1945E80C00EBDF76 /* JMOSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMOSectionView.h; sourceTree = "<group>"; };
 		C255BDFC1945E80C00EBDF76 /* JMOSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMOSectionView.m; sourceTree = "<group>"; };
-		C255BDFE1945F05400EBDF76 /* JMOTableViewControllerWithTableViewDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMOTableViewControllerWithTableViewDescription.h; sourceTree = "<group>"; };
-		C255BDFF1945F05400EBDF76 /* JMOTableViewControllerWithTableViewDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMOTableViewControllerWithTableViewDescription.m; sourceTree = "<group>"; };
 		C255BE011945F4C000EBDF76 /* JMOTableViewDescriptionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMOTableViewDescriptionDelegate.h; sourceTree = "<group>"; };
 		C280755218E61C390068961F /* JMOTableViewCellRed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMOTableViewCellRed.h; sourceTree = "<group>"; };
 		C280755318E61C390068961F /* JMOTableViewCellRed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMOTableViewCellRed.m; sourceTree = "<group>"; };
@@ -99,6 +97,8 @@
 		C29D1ABA18DAC0A80011C2E7 /* TableViewDescriptionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewDescriptionTests.m; sourceTree = "<group>"; };
 		C29D1ACE18DAC3010011C2E7 /* JMODemoTableViewDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMODemoTableViewDescription.h; sourceTree = "<group>"; };
 		C29D1ACF18DAC3010011C2E7 /* JMODemoTableViewDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMODemoTableViewDescription.m; sourceTree = "<group>"; };
+		C2EB6C541A92029400A6DE03 /* JMOTableViewDescriptionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMOTableViewDescriptionController.h; sourceTree = "<group>"; };
+		C2EB6C551A92029400A6DE03 /* JMOTableViewDescriptionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMOTableViewDescriptionController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,10 +143,10 @@
 			isa = PBXGroup;
 			children = (
 				C255BDF51945DEE800EBDF76 /* JMOTableViewDescriptionControllers.h */,
+				C2EB6C541A92029400A6DE03 /* JMOTableViewDescriptionController.h */,
+				C2EB6C551A92029400A6DE03 /* JMOTableViewDescriptionController.m */,
 				C255BDDF1945CD8B00EBDF76 /* JMOViewControllerWithTableViewDescription.h */,
 				C255BDE01945CD8B00EBDF76 /* JMOViewControllerWithTableViewDescription.m */,
-				C255BDFE1945F05400EBDF76 /* JMOTableViewControllerWithTableViewDescription.h */,
-				C255BDFF1945F05400EBDF76 /* JMOTableViewControllerWithTableViewDescription.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -389,9 +389,9 @@
 				C255BDE11945CD8B00EBDF76 /* JMOViewControllerWithTableViewDescription.m in Sources */,
 				C29D1AD018DAC3010011C2E7 /* JMODemoTableViewDescription.m in Sources */,
 				C280755718E61C760068961F /* JMOTableViewCellBlue.m in Sources */,
-				C255BE001945F05400EBDF76 /* JMOTableViewControllerWithTableViewDescription.m in Sources */,
 				C255BDF01945DE0A00EBDF76 /* JMOTableViewDescriptionCell.m in Sources */,
 				C29D1AA618DAC0A80011C2E7 /* JMOViewController.m in Sources */,
+				C2EB6C561A92029400A6DE03 /* JMOTableViewDescriptionController.m in Sources */,
 				C29D1AA018DAC0A80011C2E7 /* JMOAppDelegate.m in Sources */,
 				C280756B18E7180F0068961F /* JMOTableViewRowDescription.m in Sources */,
 			);

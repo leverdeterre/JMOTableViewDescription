@@ -1,5 +1,5 @@
 //
-//  JMOTableViewControllerWithTableViewDescription.h
+//  JMOTableViewDescriptionController.h
 //  TableViewDescription
 //
 //  Created by Jerome Morissard on 6/9/14.
@@ -11,7 +11,7 @@
 
 @class JMOTableViewDescription;
 
-@interface JMOTableViewControllerWithTableViewDescription : UITableViewController <JMOTableViewDescriptionDelegate>
+@interface JMOTableViewDescriptionController : UITableViewController <JMOTableViewDescriptionDelegate>
 
 @property (strong, nonatomic) JMOTableViewDescription *tableViewDescription;
 

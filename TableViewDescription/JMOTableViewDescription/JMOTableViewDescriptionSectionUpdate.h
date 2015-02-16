@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class JMOTableViewSectionDescription;
 @protocol JMOTableViewDescriptionSectionUpdate <NSObject>
 
 @optional
 - (void)updateSectionWithData:(id)data;
-- (void)updateSectionWithSectionDescription:(id)sectionDescription;
+- (void)updateSectionWithDescription:(JMOTableViewSectionDescription *)description;
 
 @end

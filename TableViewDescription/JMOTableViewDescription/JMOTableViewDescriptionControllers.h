@@ -10,6 +10,6 @@
 #define TableViewDescription_TableViewDescriptionControllers_h
 
 #import "JMOViewControllerWithTableViewDescription.h"
-#import "JMOTableViewControllerWithTableViewDescription.h"
+#import "JMOTableViewDescriptionController.h"
 
 #endif

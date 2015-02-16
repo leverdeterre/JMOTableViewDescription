@@ -23,8 +23,8 @@
 #define TableViewDescription_JMOTableViewDescriptionHeaders_h
 
 //Controllers
-#import "JMOViewControllerWithTableViewDescription.h"
-#import "JMOTableViewControllerWithTableViewDescription.h"
+#import "JMOTableViewDescriptionController.h"           //TableViewController
+#import "JMOViewControllerWithTableViewDescription.h"   //UIViewController
 
 //Models
 #import "JMOTableViewDescriptionModels.h"

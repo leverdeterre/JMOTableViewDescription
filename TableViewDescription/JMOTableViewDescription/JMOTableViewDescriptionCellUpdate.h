@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class JMOTableViewRowDescription;
 @protocol JMOTableViewDescriptionCellUpdate <NSObject>
 
 @optional
 - (void)updateCellWithData:(id)data;
-- (void)updateCellWithRowDescription:(id)data;
+- (void)updateCellWitDescription:(JMOTableViewRowDescription *)description;
 
 @end

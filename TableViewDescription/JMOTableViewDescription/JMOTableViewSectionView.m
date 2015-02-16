@@ -10,4 +10,9 @@
 
 @implementation JMOTableViewSectionView
 
+- (void)setBackgroundColor:(UIColor *)backgroundColor
+{
+    NSLog(@"");
+}
+
 @end

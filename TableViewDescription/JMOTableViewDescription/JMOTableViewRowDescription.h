@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 @interface JMOTableViewRowDescription : NSObject
 
@@ -15,5 +14,6 @@
 @property (strong, nonatomic) NSString *cellReuseIdentifier;
 @property (strong, nonatomic) id data;
 @property (assign, nonatomic) CGFloat cellHeight;
+@property (strong, nonatomic) NSString *cellNibName;
 
 @end
