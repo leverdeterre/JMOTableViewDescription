@@ -12,7 +12,7 @@
 @protocol JMOTableViewDescriptionSectionUpdate <NSObject>
 
 @optional
-- (void)updateSectionWithData:(id)data;
-- (void)updateSectionWithDescription:(JMOTableViewSectionDescription *)description;
+- (void)updateSectionWithData:(_Nullable id)data;
+- (void)updateSectionWithDescription:(nonnull JMOTableViewSectionDescription *)description;
 
 @end

@@ -14,14 +14,14 @@
 
 @interface JMOTableViewDescription : NSObject
 
-@property (strong, nonatomic) NSMutableArray *sectionsDescription;
+@property (strong, nonatomic, nullable) NSMutableArray <JMOTableViewSectionDescription *> *sectionsDescription;
 
-- (void)registerClassesInTableView:(UITableView *)tableView;
+- (void)registerClassesInTableView:(nonnull UITableView *)tableView;
 
-- (JMOTableViewSectionDescription *)sectionDescriptionForSection:(NSInteger)section;
-- (JMOTableViewRowDescription *)rowDescriptionForIndexPath:(NSIndexPath *)indexPath;
+- (nullable JMOTableViewSectionDescription *)sectionDescriptionForSection:(NSInteger)section;
+- (nullable JMOTableViewRowDescription *)rowDescriptionForIndexPath:(nonnull NSIndexPath *)indexPath;
 
-- (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath;
+- (void)moveRowAtIndexPath:(nonnull NSIndexPath *)indexPath toIndexPath:(nonnull NSIndexPath *)newIndexPath;
 - (void)moveSection:(NSInteger)section toSection:(NSInteger)newSection;
 
 /*
@@ -35,5 +35,7 @@
 - (void)reloadRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation NS_AVAILABLE_IOS(3_0);
 - (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath NS_AVAILABLE_IOS(5_0);
 */
+
+@property (assign, nonatomic, readonly) CGFloat cumulatedHeights;
 
 @end

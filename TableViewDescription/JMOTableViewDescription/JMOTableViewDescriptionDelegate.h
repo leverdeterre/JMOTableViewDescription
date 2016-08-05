@@ -13,6 +13,7 @@
 @protocol JMOTableViewDescriptionDelegate <UITableViewDelegate>
 
 @optional
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath rowDescription:(JMOTableViewRowDescription *)rowDescription;
-- (void)tableView:(UITableView *)tableView didSelectSectionAtIndex:(NSInteger)index sectionDescription:(JMOTableViewSectionDescription *)sectionDescription;
+- (void)tableView:(nonnull UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath rowDescription:(nonnull JMOTableViewRowDescription *)rowDescription;
+- (void)tableView:(nonnull UITableView *)tableView didSelectSectionAtIndex:(NSInteger)index sectionDescription:(nonnull JMOTableViewSectionDescription *)sectionDescription;
+
 @end

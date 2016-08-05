@@ -328,6 +328,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Jerome Morissard";
 				TargetAttributes = {
+					C29D1A8B18DAC0A80011C2E7 = {
+						ProvisioningStyle = Manual;
+					};
 					C29D1AAC18DAC0A80011C2E7 = {
 						TestTargetID = C29D1A8B18DAC0A80011C2E7;
 					};
@@ -518,6 +521,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TableViewDescription/TableViewDescription-Prefix.pch";
 				INFOPLIST_FILE = "TableViewDescription/TableViewDescription-Info.plist";
@@ -532,6 +536,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TableViewDescription/TableViewDescription-Prefix.pch";
 				INFOPLIST_FILE = "TableViewDescription/TableViewDescription-Info.plist";

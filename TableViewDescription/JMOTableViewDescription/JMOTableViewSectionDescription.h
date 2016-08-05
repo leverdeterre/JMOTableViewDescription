@@ -11,12 +11,12 @@
 
 @interface JMOTableViewSectionDescription : NSObject
 
-@property (strong, nonatomic) Class sectionClass;
-@property (strong, nonatomic) NSString *sectionReuseIdentifier;
+@property (strong, nonatomic, nullable) Class sectionClass;
+@property (strong, nonatomic, nullable) NSString *sectionReuseIdentifier;
 @property (assign, nonatomic) CGFloat sectionHeight;
-@property (strong, nonatomic) id data;
-@property (strong, nonatomic, readonly) NSMutableArray *rowDescriptions; //JMOTableViewRowDescription
+@property (strong, nonatomic, nullable) id data;
+@property (strong, nonatomic, readonly, nullable) NSMutableArray <JMOTableViewRowDescription *> *rowDescriptions;
 
-- (void)addRowDescription:(JMOTableViewRowDescription *)rowDesc;
+- (void)addRowDescription:(nonnull JMOTableViewRowDescription *)rowDesc;
 
 @end

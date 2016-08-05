@@ -129,4 +129,18 @@
     }
 }
 
+- (CGFloat)cumulatedHeights
+{
+    __block CGFloat cumulatedHeight = 0.0f;
+    [self.sectionsDescription enumerateObjectsUsingBlock:^(JMOTableViewSectionDescription *sectionDescription, NSUInteger idx, BOOL * stop) {
+        cumulatedHeight = cumulatedHeight + sectionDescription.sectionHeight;
+        
+        [sectionDescription.rowDescriptions enumerateObjectsUsingBlock:^(JMOTableViewRowDescription *rowDescription, NSUInteger idx, BOOL * stop) {
+            cumulatedHeight = cumulatedHeight + rowDescription.cellHeight;
+        }];
+    }];
+    
+    return cumulatedHeight;
+}
+
 @end
