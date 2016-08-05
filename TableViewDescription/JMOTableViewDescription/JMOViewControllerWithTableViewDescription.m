@@ -116,16 +116,24 @@
     
     if (reuseIdentifier) {
         if([self.tableView respondsToSelector:@selector(dequeueReusableHeaderFooterViewWithIdentifier:)]) {
-            sectionView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
-            if ([sectionView respondsToSelector:@selector(updateSectionWithDescription:)]) {
-                [sectionView updateSectionWithDescription:sectionDesc];
+            UIView *view = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
+            if ([view conformsToProtocol:@protocol(JMOTableViewDescriptionSectionUpdate)]) {
+                sectionView = (UIView <JMOTableViewDescriptionSectionUpdate> *)view;
                 
-            } else if ([sectionView respondsToSelector:@selector(updateSectionWithData:)]) {
-                [sectionView updateSectionWithData:sectionDesc.data];
+                if ([sectionView respondsToSelector:@selector(updateSectionWithDescription:)]) {
+                    [sectionView updateSectionWithDescription:sectionDesc];
+                    
+                } else if ([sectionView respondsToSelector:@selector(updateSectionWithData:)]) {
+                    [sectionView updateSectionWithData:sectionDesc.data];
+                    
+                } else {
+                    JMOLog(@"WARNING !! no update founds, for methods for protocol JMOTableViewDescriptionSectionUpdate");
+                }
                 
             } else {
-                JMOLog(@"WARNING !! no update founds, for methods for protocol JMOTableViewDescriptionSectionUpdate");
+                JMOLog(@"WARNING !! view not conform to protocol JMOTableViewDescriptionSectionUpdate");
             }
+            
         }
     } else {
         /*

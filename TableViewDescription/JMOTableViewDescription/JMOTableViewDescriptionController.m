@@ -98,7 +98,7 @@
 {
     JMOTableViewSectionDescription *sectionDesc = [self.tableViewDescription sectionDescriptionForSection:section];
     UIView <JMOTableViewDescriptionSectionUpdate> *sectionView;
-    NSString *reuseIdentifier = nil;
+    NSString *reuseIdentifier;
     if (sectionDesc.sectionReuseIdentifier) {
         reuseIdentifier = sectionDesc.sectionReuseIdentifier;
     } else if (sectionDesc.sectionClass) {
@@ -107,17 +107,35 @@
     
     if (reuseIdentifier) {
         if([self.tableView respondsToSelector:@selector(dequeueReusableHeaderFooterViewWithIdentifier:)]) {
-            sectionView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
-            if ([sectionView respondsToSelector:@selector(updateSectionWithDescription:)]) {
-                [sectionView updateSectionWithDescription:sectionDesc];
+            UIView *view = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseIdentifier];
+            if ([view conformsToProtocol:@protocol(JMOTableViewDescriptionSectionUpdate)]) {
+                sectionView = (UIView <JMOTableViewDescriptionSectionUpdate> *)view;
                 
-            } else if ([sectionView respondsToSelector:@selector(updateSectionWithData:)]) {
-                [sectionView updateSectionWithData:sectionDesc.data];
+                if ([sectionView respondsToSelector:@selector(updateSectionWithDescription:)]) {
+                    [sectionView updateSectionWithDescription:sectionDesc];
+                    
+                } else if ([sectionView respondsToSelector:@selector(updateSectionWithData:)]) {
+                    [sectionView updateSectionWithData:sectionDesc.data];
+                    
+                } else {
+                    JMOLog(@"WARNING !! no update founds, for methods for protocol JMOTableViewDescriptionSectionUpdate");
+                }
                 
             } else {
-                JMOLog(@"WARNING !! no update founds, for methods for protocol JMOTableViewDescriptionSectionUpdate");
+                JMOLog(@"WARNING !! view not conform to protocol JMOTableViewDescriptionSectionUpdate");
             }
+            
         }
+    } else {
+        /*
+         sectionView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.frame), sectionDesc.sectionHeight)];
+         UILabel *sectionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.frame), sectionDesc.sectionHeight)];
+         [sectionLabel setBackgroundColor:[UIColor clearColor]];
+         sectionLabel.text = sectionDesc.sectionTitle;
+         sectionLabel.textAlignment = NSTextAlignmentCenter;
+         [sectionView addSubview:sectionLabel];
+         [sectionView setBackgroundColor:[UIColor whiteColor]];
+         */
     }
     
     return sectionView;
