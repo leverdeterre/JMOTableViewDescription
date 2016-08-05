@@ -10,10 +10,10 @@
 
 @interface JMOTableViewRowDescription : NSObject
 
-@property (strong, nonatomic) Class cellClass;
-@property (strong, nonatomic) NSString *cellReuseIdentifier;
-@property (strong, nonatomic) id data;
+@property (strong, nonatomic, nullable) Class cellClass;
+@property (strong, nonatomic, nullable) NSString *cellReuseIdentifier;
+@property (strong, nonatomic, nullable) id data;
 @property (assign, nonatomic) CGFloat cellHeight;
-@property (strong, nonatomic) NSString *cellNibName;
+@property (strong, nonatomic, nullable) NSString *cellNibName;
 
 @end

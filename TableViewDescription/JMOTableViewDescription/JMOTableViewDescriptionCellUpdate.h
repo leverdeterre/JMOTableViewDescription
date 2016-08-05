@@ -12,7 +12,7 @@
 @protocol JMOTableViewDescriptionCellUpdate <NSObject>
 
 @optional
-- (void)updateCellWithData:(id)data;
-- (void)updateCellWithDescription:(JMOTableViewRowDescription *)description;
+- (void)updateCellWithData:(_Nullable id)data;
+- (void)updateCellWithDescription:(nonnull JMOTableViewRowDescription *)description;
 
 @end
