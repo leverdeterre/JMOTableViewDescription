@@ -37,14 +37,19 @@
 - (void)registerClassesInTableView:(UITableView *)tableView
 {
     [self.sectionsDescription enumerateObjectsUsingBlock:^(JMOTableViewSectionDescription *sectionDesc, NSUInteger idx, BOOL *stop) {
+        
         //register sectionClass
-        [self registerHeaderFooterClass:sectionDesc.sectionClass withIdentifier:sectionDesc.sectionReuseIdentifier inTableView:tableView];
+        if (sectionDesc.sectionNibName.length) {
+            [self registerHeaderFooterNibName:sectionDesc.sectionNibName withIdentifier:sectionDesc.sectionReuseIdentifier inTableView:tableView];
+        } else if (sectionDesc.sectionClass) {
+            [self registerHeaderFooterClass:sectionDesc.sectionClass withIdentifier:sectionDesc.sectionReuseIdentifier inTableView:tableView];
+        }
 
         //register cellClass
         [sectionDesc.rowDescriptions enumerateObjectsUsingBlock:^(JMOTableViewRowDescription *cellDesc, NSUInteger idx, BOOL *stop) {
             
             if (cellDesc.cellNibName.length) {
-                [self registerNibName:cellDesc.cellNibName withIdentifier:cellDesc.cellReuseIdentifier inTableView:tableView];
+                [self registerCellNibName:cellDesc.cellNibName withIdentifier:cellDesc.cellReuseIdentifier inTableView:tableView];
             
             } else if (cellDesc.cellClass) {
                 [self registerCellClass:cellDesc.cellClass withIdentifier:cellDesc.cellReuseIdentifier inTableView:tableView];
@@ -53,7 +58,8 @@
     }];
 }
 
-- (void)registerNibName:(NSString *)nibName withIdentifier:(NSString *)cellIdentifier inTableView:(UITableView *)tableView
+
+- (void)registerCellNibName:(NSString *)nibName withIdentifier:(NSString *)cellIdentifier inTableView:(UITableView *)tableView
 {
     [tableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellReuseIdentifier:cellIdentifier];
 }
@@ -70,6 +76,11 @@
     if (cellClass && reuseIdentifier) {
         [tableView registerClass:cellClass forCellReuseIdentifier:reuseIdentifier];
     }
+}
+
+- (void)registerHeaderFooterNibName:(NSString *)nibName withIdentifier:(NSString *)sectionIdentifier inTableView:(UITableView *)tableView
+{
+    [tableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forHeaderFooterViewReuseIdentifier:sectionIdentifier];
 }
 
 - (void)registerHeaderFooterClass:(Class)sectionClass withIdentifier:(NSString *)sectionIdentifier inTableView:(UITableView *)tableView
