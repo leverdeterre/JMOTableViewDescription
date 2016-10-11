@@ -12,6 +12,7 @@
 @interface JMOTableViewSectionDescription : NSObject
 
 @property (strong, nonatomic, nullable) Class sectionClass;
+@property (strong, nonatomic, nullable) NSString *sectionNibName;
 @property (strong, nonatomic, nullable) NSString *sectionReuseIdentifier;
 @property (assign, nonatomic) CGFloat sectionHeight;
 @property (strong, nonatomic, nullable) id data;
