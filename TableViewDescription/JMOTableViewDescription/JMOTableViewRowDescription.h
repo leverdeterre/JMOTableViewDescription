@@ -14,6 +14,18 @@
 @property (strong, nonatomic, nullable) NSString *cellReuseIdentifier;
 @property (strong, nonatomic, nullable) id data;
 @property (assign, nonatomic) CGFloat cellHeight;
-@property (strong, nonatomic, nullable) NSString *cellNibName;
+@property (strong, nonatomic, nullable) UINib *nib;
 
++ (nonnull instancetype)rowDescriptionWithReuseIdentifier:(nonnull NSString *)reuseIdentifier
+                                          nibName:(nonnull NSString *)cellNibName
+                                       cellHeight:(CGFloat)cellHeight;
+
++ (nonnull instancetype)rowDescriptionWithReuseIdentifier:(nonnull NSString *)reuseIdentifier
+                                                cellClass:(_Nonnull Class)cellClass
+                                               cellHeight:(CGFloat)cellHeight;
+
++ (nonnull instancetype)rowDescriptionWithReuseIdentifier:(nonnull NSString *)reuseIdentifier
+                                                nib:(nonnull UINib *)nib
+                                               cellHeight:(CGFloat)cellHeight;
+    
 @end

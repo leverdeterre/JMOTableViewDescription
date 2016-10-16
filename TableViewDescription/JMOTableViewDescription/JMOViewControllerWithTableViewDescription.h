@@ -13,8 +13,8 @@
 
 @interface JMOViewControllerWithTableViewDescription : UIViewController <UITableViewDataSource, JMOTableViewDescriptionDelegate>
 
-@property (strong, nonatomic) JMOTableViewDescription *tableViewDescription;
+@property (nullable, strong, nonatomic) JMOTableViewDescription *tableViewDescription;
 
-- (void)setTableViewDescription:(JMOTableViewDescription *)tableViewDescription animated:(BOOL)animated;
+- (void)setTableViewDescription:(nullable JMOTableViewDescription *)tableViewDescription animated:(BOOL)animated;
 
 @end

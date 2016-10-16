@@ -38,18 +38,19 @@
 {
     [self.sectionsDescription enumerateObjectsUsingBlock:^(JMOTableViewSectionDescription *sectionDesc, NSUInteger idx, BOOL *stop) {
         
-        //register sectionClass
-        if (sectionDesc.sectionNibName.length) {
-            [self registerHeaderFooterNibName:sectionDesc.sectionNibName withIdentifier:sectionDesc.sectionReuseIdentifier inTableView:tableView];
+        //register sections
+        if (sectionDesc.nib) {
+            [self registerHeaderFooterNib:sectionDesc.nib withIdentifier:sectionDesc.sectionReuseIdentifier inTableView:tableView];
+            
         } else if (sectionDesc.sectionClass) {
             [self registerHeaderFooterClass:sectionDesc.sectionClass withIdentifier:sectionDesc.sectionReuseIdentifier inTableView:tableView];
         }
 
-        //register cellClass
+        //register rows
         [sectionDesc.rowDescriptions enumerateObjectsUsingBlock:^(JMOTableViewRowDescription *cellDesc, NSUInteger idx, BOOL *stop) {
             
-            if (cellDesc.cellNibName.length) {
-                [self registerCellNibName:cellDesc.cellNibName withIdentifier:cellDesc.cellReuseIdentifier inTableView:tableView];
+            if (cellDesc.nib) {
+                [self registerCellNib:cellDesc.nib withIdentifier:cellDesc.cellReuseIdentifier inTableView:tableView];
             
             } else if (cellDesc.cellClass) {
                 [self registerCellClass:cellDesc.cellClass withIdentifier:cellDesc.cellReuseIdentifier inTableView:tableView];
@@ -59,9 +60,9 @@
 }
 
 
-- (void)registerCellNibName:(NSString *)nibName withIdentifier:(NSString *)cellIdentifier inTableView:(UITableView *)tableView
+- (void)registerCellNib:(UINib *)nib withIdentifier:(NSString *)cellIdentifier inTableView:(UITableView *)tableView
 {
-    [tableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forCellReuseIdentifier:cellIdentifier];
+    [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
 }
 
 - (void)registerCellClass:(Class)cellClass withIdentifier:(NSString *)cellIdentifier inTableView:(UITableView *)tableView
@@ -78,9 +79,9 @@
     }
 }
 
-- (void)registerHeaderFooterNibName:(NSString *)nibName withIdentifier:(NSString *)sectionIdentifier inTableView:(UITableView *)tableView
+- (void)registerHeaderFooterNib:(UINib *)nib withIdentifier:(NSString *)sectionIdentifier inTableView:(UITableView *)tableView
 {
-    [tableView registerNib:[UINib nibWithNibName:nibName bundle:nil] forHeaderFooterViewReuseIdentifier:sectionIdentifier];
+    [tableView registerNib:nib forHeaderFooterViewReuseIdentifier:sectionIdentifier];
 }
 
 - (void)registerHeaderFooterClass:(Class)sectionClass withIdentifier:(NSString *)sectionIdentifier inTableView:(UITableView *)tableView

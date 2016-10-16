@@ -24,6 +24,39 @@
     [_rowDescriptions addObject:rowDesc];
 }
 
++ (nonnull instancetype)sectionDescriptionWithReuseIdentifier:(nonnull NSString *)reuseIdentifier
+                                                          nibName:(nonnull NSString *)sectionNibName
+                                                       sectionHeight:(CGFloat)sectionHeight
+{
+    JMOTableViewSectionDescription *desc = [[self.class alloc] init];
+    desc.sectionReuseIdentifier = reuseIdentifier;
+    desc.sectionHeight = sectionHeight;
+    desc.nib = [UINib nibWithNibName:sectionNibName bundle:[NSBundle mainBundle]];
+    return desc;
+}
+    
++ (nonnull instancetype)sectionDescriptionWithReuseIdentifier:(nonnull NSString *)reuseIdentifier
+                                                    cellClass:(_Nonnull Class)sectionClass
+                                                   sectionHeight:(CGFloat)sectionHeight
+{
+    JMOTableViewSectionDescription *desc = [[self.class alloc] init];
+    desc.sectionReuseIdentifier = reuseIdentifier;
+    desc.sectionClass = sectionClass;
+    desc.sectionHeight = sectionHeight;
+    return desc;
+}
+    
++ (nonnull instancetype)sectionDescriptionWithReuseIdentifier:(nonnull NSString *)reuseIdentifier
+                                                          nib:(nonnull UINib *)nib
+                                                   sectionHeight:(CGFloat)sectionHeight
+{
+    JMOTableViewSectionDescription *desc = [[self.class alloc] init];
+    desc.sectionReuseIdentifier = reuseIdentifier;
+    desc.nib = nib;
+    desc.sectionHeight = sectionHeight;
+    return desc;
+}
+    
 - (NSString *)description
 {
     NSMutableString *mutaString = [NSMutableString new];
