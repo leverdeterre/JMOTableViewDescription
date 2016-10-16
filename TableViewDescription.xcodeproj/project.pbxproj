@@ -36,6 +36,7 @@
 		C2A667871DB3A49F00676825 /* JMOTableViewNibCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A667861DB3A49F00676825 /* JMOTableViewNibCell.m */; };
 		C2A667891DB3A4B200676825 /* JMOTableViewNibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2A667881DB3A4B200676825 /* JMOTableViewNibCell.xib */; };
 		C2A6678B1DB3AF3900676825 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2A6678A1DB3AF3900676825 /* Launch Screen.storyboard */; };
+		C2A6678D1DB3AFC800676825 /* JMOTableViewDescription.podspec in Resources */ = {isa = PBXBuildFile; fileRef = C2A6678C1DB3AFC800676825 /* JMOTableViewDescription.podspec */; };
 		C2EB6C561A92029400A6DE03 /* JMOTableViewDescriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB6C551A92029400A6DE03 /* JMOTableViewDescriptionController.m */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		C2A667861DB3A49F00676825 /* JMOTableViewNibCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMOTableViewNibCell.m; sourceTree = "<group>"; };
 		C2A667881DB3A4B200676825 /* JMOTableViewNibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JMOTableViewNibCell.xib; sourceTree = "<group>"; };
 		C2A6678A1DB3AF3900676825 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		C2A6678C1DB3AFC800676825 /* JMOTableViewDescription.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = JMOTableViewDescription.podspec; sourceTree = "<group>"; };
 		C2EB6C541A92029400A6DE03 /* JMOTableViewDescriptionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMOTableViewDescriptionController.h; sourceTree = "<group>"; };
 		C2EB6C551A92029400A6DE03 /* JMOTableViewDescriptionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMOTableViewDescriptionController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				C2A6678A1DB3AF3900676825 /* Launch Screen.storyboard */,
+				C2A6678C1DB3AFC800676825 /* JMOTableViewDescription.podspec */,
 				C29D1A9518DAC0A80011C2E7 /* TableViewDescription */,
 				C29D1AB418DAC0A80011C2E7 /* TableViewDescriptionTests */,
 				C29D1A8E18DAC0A80011C2E7 /* Frameworks */,
@@ -373,6 +376,7 @@
 			files = (
 				C29D1AA818DAC0A80011C2E7 /* Images.xcassets in Resources */,
 				C29D1A9A18DAC0A80011C2E7 /* InfoPlist.strings in Resources */,
+				C2A6678D1DB3AFC800676825 /* JMOTableViewDescription.podspec in Resources */,
 				C2A667891DB3A4B200676825 /* JMOTableViewNibCell.xib in Resources */,
 				C2A6678B1DB3AF3900676825 /* Launch Screen.storyboard in Resources */,
 				C29D1AA318DAC0A80011C2E7 /* Main.storyboard in Resources */,
