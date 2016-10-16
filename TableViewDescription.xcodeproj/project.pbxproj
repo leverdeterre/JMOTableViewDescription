@@ -33,6 +33,8 @@
 		C29D1AB918DAC0A80011C2E7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C29D1AB718DAC0A80011C2E7 /* InfoPlist.strings */; };
 		C29D1ABB18DAC0A80011C2E7 /* TableViewDescriptionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C29D1ABA18DAC0A80011C2E7 /* TableViewDescriptionTests.m */; };
 		C29D1AD018DAC3010011C2E7 /* JMODemoTableViewDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = C29D1ACF18DAC3010011C2E7 /* JMODemoTableViewDescription.m */; };
+		C2A667871DB3A49F00676825 /* JMOTableViewNibCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A667861DB3A49F00676825 /* JMOTableViewNibCell.m */; };
+		C2A667891DB3A4B200676825 /* JMOTableViewNibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2A667881DB3A4B200676825 /* JMOTableViewNibCell.xib */; };
 		C2EB6C561A92029400A6DE03 /* JMOTableViewDescriptionController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB6C551A92029400A6DE03 /* JMOTableViewDescriptionController.m */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +99,9 @@
 		C29D1ABA18DAC0A80011C2E7 /* TableViewDescriptionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewDescriptionTests.m; sourceTree = "<group>"; };
 		C29D1ACE18DAC3010011C2E7 /* JMODemoTableViewDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMODemoTableViewDescription.h; sourceTree = "<group>"; };
 		C29D1ACF18DAC3010011C2E7 /* JMODemoTableViewDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMODemoTableViewDescription.m; sourceTree = "<group>"; };
+		C2A667851DB3A49F00676825 /* JMOTableViewNibCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMOTableViewNibCell.h; sourceTree = "<group>"; };
+		C2A667861DB3A49F00676825 /* JMOTableViewNibCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMOTableViewNibCell.m; sourceTree = "<group>"; };
+		C2A667881DB3A4B200676825 /* JMOTableViewNibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JMOTableViewNibCell.xib; sourceTree = "<group>"; };
 		C2EB6C541A92029400A6DE03 /* JMOTableViewDescriptionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMOTableViewDescriptionController.h; sourceTree = "<group>"; };
 		C2EB6C551A92029400A6DE03 /* JMOTableViewDescriptionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMOTableViewDescriptionController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,6 +191,9 @@
 				C280755618E61C760068961F /* JMOTableViewCellBlue.m */,
 				C280755818E6212F0068961F /* JMOTableViewCellGreen.h */,
 				C280755918E6212F0068961F /* JMOTableViewCellGreen.m */,
+				C2A667851DB3A49F00676825 /* JMOTableViewNibCell.h */,
+				C2A667861DB3A49F00676825 /* JMOTableViewNibCell.m */,
+				C2A667881DB3A4B200676825 /* JMOTableViewNibCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -362,6 +370,7 @@
 			files = (
 				C29D1AA818DAC0A80011C2E7 /* Images.xcassets in Resources */,
 				C29D1A9A18DAC0A80011C2E7 /* InfoPlist.strings in Resources */,
+				C2A667891DB3A4B200676825 /* JMOTableViewNibCell.xib in Resources */,
 				C29D1AA318DAC0A80011C2E7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +392,7 @@
 			files = (
 				C280756C18E7180F0068961F /* JMOTableViewSectionDescription.m in Sources */,
 				C280755A18E6212F0068961F /* JMOTableViewCellGreen.m in Sources */,
+				C2A667871DB3A49F00676825 /* JMOTableViewNibCell.m in Sources */,
 				C280756A18E7180F0068961F /* JMOTableViewDescription.m in Sources */,
 				C255BDF31945DE4E00EBDF76 /* JMOTableViewSectionView.m in Sources */,
 				C280756D18E7180F0068961F /* UITableView+TableViewDescription.m in Sources */,

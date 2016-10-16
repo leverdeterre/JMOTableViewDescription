@@ -16,7 +16,9 @@
 {
     JMOTableViewRowDescription *desc = [[self.class alloc] init];
     desc.cellReuseIdentifier = reuseIdentifier;
-    desc.nib = [UINib nibWithNibName:cellNibName bundle:[NSBundle mainBundle]];
+    UINib *nib = [UINib nibWithNibName:cellNibName bundle:[NSBundle mainBundle]];
+    NSAssert(nib != nil, @"Nib instanciation failed ? Nib not in mainBundle ?");
+    desc.nib = nib;
     desc.cellHeight = cellHeight;
     return desc;
 }
