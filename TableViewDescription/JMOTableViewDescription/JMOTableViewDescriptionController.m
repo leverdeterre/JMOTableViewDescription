@@ -32,7 +32,7 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        if (_tableViewDescription.sectionsDescription.count == 0) {
+        if (_tableViewDescription.sectionDescriptions.count == 0) {
             _tableViewDescription = tableViewDescription;
             [self.tableViewDescription registerClassesInTableView:self.tableView];
             [self.tableView reloadData];
@@ -51,12 +51,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.tableViewDescription.sectionsDescription.count;
+    return self.tableViewDescription.sectionDescriptions.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    JMOTableViewSectionDescription *tableSection = self.tableViewDescription.sectionsDescription[section];
+    JMOTableViewSectionDescription *tableSection = self.tableViewDescription.sectionDescriptions[section];
     return tableSection.rowDescriptions.count;
 }
 

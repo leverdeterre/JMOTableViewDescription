@@ -86,8 +86,8 @@
         oneRow.data = [NSString stringWithFormat:@"%@ (%d)",oneRow.cellReuseIdentifier,(int)oneRow.cellHeight];
         [secondSection addRowDescription:oneRow];
         
-        [desc.sectionsDescription addObject:oneSection];
-        [desc.sectionsDescription addObject:secondSection];
+        [desc addSectionDescription:oneSection];
+        [desc addSectionDescription:secondSection];
         return desc;
     }
     
@@ -206,7 +206,7 @@
     oneRow.data = [NSString stringWithFormat:@"%@ (%d)",oneRow.cellReuseIdentifier,(int)oneRow.cellHeight];
     [oneSection addRowDescription:oneRow];
     
-    desc.sectionsDescription = [@[oneSection]mutableCopy];
+    [desc addSectionDescription:oneSection];
     
     if (number == 2) {
         JMOTableViewSectionDescription *secondSection = [JMOTableViewSectionDescription new];
@@ -235,7 +235,7 @@
         oneRow.data = [NSString stringWithFormat:@"%@ (%d)",oneRow.cellReuseIdentifier,(int)oneRow.cellHeight];
         [secondSection addRowDescription:oneRow];
 
-        [desc.sectionsDescription addObject:secondSection];
+        [desc addSectionDescription:secondSection];
     }
     
     return desc;

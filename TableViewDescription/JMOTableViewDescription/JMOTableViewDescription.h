@@ -14,7 +14,9 @@
 
 @interface JMOTableViewDescription : NSObject
 
-@property (strong, nonatomic, nullable) NSMutableArray <JMOTableViewSectionDescription *> *sectionsDescription;
+@property (strong, nonatomic, nullable) NSMutableArray <JMOTableViewSectionDescription *> *sectionDescriptions;
+    
+- (void)addSectionDescription:(nonnull JMOTableViewSectionDescription *)sectionDesc;
 
 - (void)registerClassesInTableView:(nonnull UITableView *)tableView;
 

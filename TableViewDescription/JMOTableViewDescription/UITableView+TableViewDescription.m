@@ -18,8 +18,8 @@
         return;
     }
     
-    NSArray *fromSectionDescriptions = fromDescription.sectionsDescription;
-    NSArray *toSectionDescriptions = toDescription.sectionsDescription;
+    NSArray *fromSectionDescriptions = fromDescription.sectionDescriptions;
+    NSArray *toSectionDescriptions = toDescription.sectionDescriptions;
     
     if (fromSectionDescriptions == nil || fromSectionDescriptions.count == 0) {
         [self reloadData];
@@ -107,8 +107,8 @@
     
     //Reload all indexPath
     NSMutableArray *indexPathsToReload = [NSMutableArray new];
-    for (int i = 0; i < toDescription.sectionsDescription.count; i++) {
-        JMOTableViewSectionDescription *sectionDesc = toDescription.sectionsDescription[i];
+    for (int i = 0; i < toDescription.sectionDescriptions.count; i++) {
+        JMOTableViewSectionDescription *sectionDesc = toDescription.sectionDescriptions[i];
         for (int j = 0; j < sectionDesc.rowDescriptions.count; j++) {
             NSIndexPath *indexP = [NSIndexPath indexPathForRow:j inSection:i];
             [indexPathsToReload addObject:indexP];

@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "JMOTableViewRowDescription.h"
+#import "JMOTableViewDescription.h"
 #import "JMOTableViewNibCell.h"
 #import "JMOTableViewSectionDescription.h"
 #import "JMOSectionView.h"
@@ -103,6 +104,61 @@
     XCTAssertEqual(sectionDesc.sectionClass,JMOSectionView.class);
     XCTAssertNil(sectionDesc.nib,@"");
     XCTAssertEqual(sectionDesc.sectionHeight, 40.0f);
+}
+    
+- (void)testCumulatedHeight_1_1
+{
+    JMOTableViewSectionDescription *sectionDesc = [JMOTableViewSectionDescription sectionDescriptionWithReuseIdentifier:@"identifier"
+                                                                                                                  cellClass:JMOSectionView.class
+                                                                                                              sectionHeight:40.0f];
+    JMOTableViewRowDescription *rowDesc = [JMOTableViewRowDescription
+                                               rowDescriptionWithReuseIdentifier:@"JMOTableViewNibCell"
+                                               cellClass:JMOTableViewNibCell.class cellHeight:40.0f];
+        
+    JMOTableViewDescription *tableViewDes = [JMOTableViewDescription new];
+    [sectionDesc addRowDescription:rowDesc];
+    [tableViewDes addSectionDescription:sectionDesc];
+    XCTAssertEqual(tableViewDes.cumulatedHeights,80.0f);
+}
+    
+- (void)testCumulatedHeight_2_1
+{
+    JMOTableViewSectionDescription *sectionDesc = [JMOTableViewSectionDescription sectionDescriptionWithReuseIdentifier:@"identifier"
+                                                                                                                  cellClass:JMOSectionView.class
+                                                                                                              sectionHeight:40.0f];
+    JMOTableViewRowDescription *rowDesc = [JMOTableViewRowDescription
+                                               rowDescriptionWithReuseIdentifier:@"JMOTableViewNibCell"
+                                               cellClass:JMOTableViewNibCell.class cellHeight:40.0f];
+    
+    JMOTableViewSectionDescription *sectionDesc2 = [JMOTableViewSectionDescription sectionDescriptionWithReuseIdentifier:@"identifier"
+                                                                                                              cellClass:JMOSectionView.class
+                                                                                                          sectionHeight:40.0f];
+    
+    JMOTableViewDescription *tableViewDes = [JMOTableViewDescription new];
+    [sectionDesc addRowDescription:rowDesc];
+    [tableViewDes addSectionDescription:sectionDesc];
+    [tableViewDes addSectionDescription:sectionDesc2];
+    XCTAssertEqual(tableViewDes.cumulatedHeights,120.0f);
+}
+   
+- (void)testCumulatedHeight_1_2
+{
+    JMOTableViewSectionDescription *sectionDesc = [JMOTableViewSectionDescription sectionDescriptionWithReuseIdentifier:@"identifier"
+                                                                                                                  cellClass:JMOSectionView.class
+                                                                                                              sectionHeight:40.0f];
+    JMOTableViewRowDescription *rowDesc = [JMOTableViewRowDescription
+                                               rowDescriptionWithReuseIdentifier:@"JMOTableViewNibCell"
+                                               cellClass:JMOTableViewNibCell.class cellHeight:40.0f];
+    
+    JMOTableViewRowDescription *rowDesc2 = [JMOTableViewRowDescription
+                                           rowDescriptionWithReuseIdentifier:@"JMOTableViewNibCell"
+                                           cellClass:JMOTableViewNibCell.class cellHeight:40.0f];
+    
+    JMOTableViewDescription *tableViewDes = [JMOTableViewDescription new];
+    [sectionDesc addRowDescription:rowDesc];
+    [sectionDesc addRowDescription:rowDesc2];
+    [tableViewDes addSectionDescription:sectionDesc];
+    XCTAssertEqual(tableViewDes.cumulatedHeights,120.0f);
 }
     
 @end

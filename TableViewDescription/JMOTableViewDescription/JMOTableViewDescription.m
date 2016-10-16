@@ -15,18 +15,23 @@
 {
     self = [super init];
     if (self) {
-        _sectionsDescription = [NSMutableArray array];
+        _sectionDescriptions = [NSMutableArray array];
     }
     
     return self;
+}
+
+- (void)addSectionDescription:(JMOTableViewSectionDescription *)sectionDesc
+{
+    [_sectionDescriptions addObject:sectionDesc];
 }
 
 - (NSString *)description
 {
     NSMutableString *mutaString = [NSMutableString new];
     
-    for (int i = 0; i < self.sectionsDescription.count; i++) {
-        [mutaString appendFormat:@"%@",self.sectionsDescription[i]];
+    for (int i = 0; i < self.sectionDescriptions.count; i++) {
+        [mutaString appendFormat:@"%@",self.sectionDescriptions[i]];
     }
     
     return mutaString;
@@ -36,7 +41,7 @@
 
 - (void)registerClassesInTableView:(UITableView *)tableView
 {
-    [self.sectionsDescription enumerateObjectsUsingBlock:^(JMOTableViewSectionDescription *sectionDesc, NSUInteger idx, BOOL *stop) {
+    [self.sectionDescriptions enumerateObjectsUsingBlock:^(JMOTableViewSectionDescription *sectionDesc, NSUInteger idx, BOOL *stop) {
         
         //register sections
         if (sectionDesc.nib) {
@@ -102,25 +107,25 @@
 
 - (JMOTableViewSectionDescription *)sectionDescriptionForSection:(NSInteger)section
 {
-    return self.sectionsDescription[section];
+    return self.sectionDescriptions[section];
 }
 
 - (JMOTableViewRowDescription *)rowDescriptionForIndexPath:(NSIndexPath *)indexPath
 {
-    JMOTableViewSectionDescription *tableSection =  self.sectionsDescription[indexPath.section];
+    JMOTableViewSectionDescription *tableSection =  self.sectionDescriptions[indexPath.section];
     JMOTableViewRowDescription *rowDesc = tableSection.rowDescriptions[indexPath.row];
     return rowDesc;
 }
 
 - (void)moveRowAtIndexPath:(NSIndexPath *)indexPath toIndexPath:(NSIndexPath *)newIndexPath
 {
-    JMOTableViewSectionDescription *tableSection =  self.sectionsDescription[indexPath.section];
+    JMOTableViewSectionDescription *tableSection =  self.sectionDescriptions[indexPath.section];
     JMOTableViewRowDescription *rowDesc = tableSection.rowDescriptions[indexPath.row];
 //NSLog(@"section %ld -> nbRow %ld",(long)indexPath.section, (long)tableSection.rowDescriptions.count);
     [tableSection.rowDescriptions removeObject:rowDesc];
 //NSLog(@"section %ld -> nbRow %ld",(long)indexPath.section, (long)tableSection.rowDescriptions.count);
 
-    JMOTableViewSectionDescription *nwTableSection =  self.sectionsDescription[newIndexPath.section];
+    JMOTableViewSectionDescription *nwTableSection =  self.sectionDescriptions[newIndexPath.section];
     if (newIndexPath.row == 0) {
         [nwTableSection.rowDescriptions insertObject:rowDesc atIndex:0];
     } else {
@@ -132,19 +137,19 @@
 
 - (void)moveSection:(NSInteger)section toSection:(NSInteger)newSection
 {
-    JMOTableViewSectionDescription *tableSection =  self.sectionsDescription[section];
-    [self.sectionsDescription removeObject:tableSection];
+    JMOTableViewSectionDescription *tableSection =  self.sectionDescriptions[section];
+    [self.sectionDescriptions removeObject:tableSection];
     if (newSection == 0) {
-        [self.sectionsDescription insertObject:tableSection atIndex:0];
+        [self.sectionDescriptions insertObject:tableSection atIndex:0];
     } else {
-        [self.sectionsDescription insertObject:tableSection atIndex:newSection-1];
+        [self.sectionDescriptions insertObject:tableSection atIndex:newSection-1];
     }
 }
 
 - (CGFloat)cumulatedHeights
 {
     __block CGFloat cumulatedHeight = 0.0f;
-    [self.sectionsDescription enumerateObjectsUsingBlock:^(JMOTableViewSectionDescription *sectionDescription, NSUInteger idx, BOOL * stop) {
+    [self.sectionDescriptions enumerateObjectsUsingBlock:^(JMOTableViewSectionDescription *sectionDescription, NSUInteger idx, BOOL * stop) {
         cumulatedHeight = cumulatedHeight + sectionDescription.sectionHeight;
         
         [sectionDescription.rowDescriptions enumerateObjectsUsingBlock:^(JMOTableViewRowDescription *rowDescription, NSUInteger idx, BOOL * stop) {
